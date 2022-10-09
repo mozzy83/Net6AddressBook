@@ -69,7 +69,7 @@
                         <span asp-validation-for="ZipCode" class="text-danger"></span>
                     </div>
                     <div class="col-12 col-lg-6 mt-3">
-                        <label asp-for="Categories" class="control-label"></label>
+                        <label asp-for="Categories" class="control-label">Categories <small>(ctrl to multi-select)</small></label>
                         <select name="CategoryList" class="form-control" asp-items="ViewBag.CategoryList" multiple></select>
                     </div>
                     <div class="col-12 col-lg-6 mt-3">
