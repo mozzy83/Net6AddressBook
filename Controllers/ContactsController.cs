@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Authorization;
 using Net6AddressBook.Data;
 using Net6AddressBook.Models;
 using Net6AddressBook.Enums;
+using Net6AddressBook.Services.Interfaces;
+using Net6AddressBook.Services;
 
 namespace Net6AddressBook.Controllers
 {
@@ -17,11 +19,13 @@ namespace Net6AddressBook.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<AppUser> _userManager;
+        private readonly IImageService _imageService;
 
-        public ContactsController(ApplicationDbContext context, UserManager<AppUser> userManager)
+        public ContactsController(ApplicationDbContext context, UserManager<AppUser> userManager, IImageService imageService)
         {
             _context = context;
             _userManager = userManager;
+            _imageService = imageService;
         }
 
         // GET: Contacts
@@ -79,6 +83,12 @@ namespace Net6AddressBook.Controllers
                 if (contact.BirthDate != null)
                 {
                     contact.BirthDate = DateTime.SpecifyKind(contact.BirthDate.Value, DateTimeKind.Utc);
+                }
+
+                if (contact.ImageFile != null)
+                {
+                    contact.ImageData = await _imageService.ConvertFileToByteArrayAsync(contact.ImageFile);
+                    contact.ImageType = contact.ImageFile.ContentType;
                 }
 
                 _context.Add(contact);
