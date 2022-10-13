@@ -181,7 +181,7 @@ namespace Net6AddressBook.Areas.Identity.Pages.Account.Manage
             return string.Format(
                 CultureInfo.InvariantCulture,
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("Microsoft.AspNetCore.Identity.UI"),
+                _urlEncoder.Encode("Net6 Address Book"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }
