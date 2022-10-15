@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-Net6AddressBook-FA10E5B4-FF37-45EC-97CE-25C336FFF14F</UserSecretsId>
+	<InvariantGlobalization>true</InvariantGlobalization> 
   </PropertyGroup>
 
   <ItemGroup>
