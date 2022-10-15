@@ -1,5 +1,10 @@
 ﻿@model Net6AddressBook.Models.ViewModels.EmailCategoryViewModel
 
+@{
+    ViewData["Title"] = "Email";
+}
+
+
 <h1 class="mt-5">Email Category: @Model.EmailData.GroupName</h1>
 <div class="p-2">
     <form asp-action="EmailCategory" method="post">
